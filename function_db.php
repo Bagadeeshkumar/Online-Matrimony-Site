@@ -2,40 +2,39 @@
 session_start();
 $_SESSION["dp"] = "images/dp.png";
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
+
 
 require "db.php";
 
-function mailTo($to, $user, $subject, $body, $success, $error)
-{
+// function mailTo($to, $user, $subject, $body, $success, $error)
+// {
 
-    require 'vendor/autoload.php';
+//     require 'vendor/autoload.php';
 
-    $mail = new PHPMailer(true);
-    try {
-        $mail->SMTPDebug = 0;
-        $mail->isSMTP();
-        $mail->Host     = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'projectdemo1310@gmail.com';
-        $mail->Password = 'Projectdemo@2309';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port    = 587;
+//     $mail = new PHPMailer(true);
+//     try {
+//         $mail->SMTPDebug = 0;
+//         $mail->isSMTP();
+//         $mail->Host     = 'smtp.gmail.com';
+//         $mail->SMTPAuth = true;
+//         $mail->Username = 'projectdemo1310@gmail.com';
+//         $mail->Password = 'Projectdemo@2309';
+//         $mail->SMTPSecure = 'tls';
+//         $mail->Port    = 587;
 
-        $mail->setFrom('saimatrimony@gmail.com', 'onlinematrimony');
-        $mail->addAddress($to, $user);
-        $mail->isHTML(true);
-        $mail->Subject = $subject;
-        $mail->Body = $body;
-        if ($mail->send()) {
-            header($success);
-        }
-    } catch (Exception $e) {
+//         $mail->setFrom('saimatrimony@gmail.com', 'onlinematrimony');
+//         $mail->addAddress($to, $user);
+//         $mail->isHTML(true);
+//         $mail->Subject = $subject;
+//         $mail->Body = $body;
+//         if ($mail->send()) {
+//             header($success);
+//         }
+//     } catch (Exception $e) {
 
-        header($error);
-    }
-}
+//         header($error);
+//     }
+// }
 
 // To store Registration information
 if (isset($_POST["reg_submit"])) {
@@ -100,7 +99,7 @@ if (isset($_POST["info_sub"])) {
 
     $otp = rand(10000, 99999);
     $_SESSION["otp"] = $otp;
-    mailTo($_SESSION['reg_mail'], $_SESSION['reg_name'], 'Registration Verification!', 'Welcome ' . $_SESSION['reg_name'] . ' to Online matrimonial website.<br><br>OTP verification code is: ' . $otp, "Location:otp.php?msg=Successfully OTP sent!", "Location: registrationpage.php?error=Unable to send Mail");
+    // mailTo($_SESSION['reg_mail'], $_SESSION['reg_name'], 'Registration Verification!', 'Welcome ' . $_SESSION['reg_name'] . ' to Online matrimonial website.<br><br>OTP verification code is: ' . $otp, "Location:otp.php?msg=Successfully OTP sent!", "Location: registrationpage.php?error=Unable to send Mail");
 
     $_SESSION["first"] = mysqli_real_escape_string($conn, $_POST['fi_name']);
     $_SESSION["last"] = mysqli_real_escape_string($conn, $_POST['l_name']);
@@ -167,69 +166,73 @@ if (isset($_POST["info_sub"])) {
     $_SESSION["p_cas"] = mysqli_real_escape_string($conn, $_POST['p_caste']);
     $_SESSION["p_mton"] = mysqli_real_escape_string($conn, $_POST['p_mton']);
     $_SESSION["p_profession"] = mysqli_real_escape_string($conn, $_POST['p_profession']);
-}
-//resent otp for registration
-if (isset($_POST["re_otp"])) {
-    mailTo($_SESSION['reg_mail'], $_SESSION['reg_name'], 'Registration Verification OTP Resent!', 'Welcome ' . $_SESSION['reg_name'] . ' to Online matrimonial website.<br><br>OTP verification code is: ' . $_SESSION["otp"], "Location:otp.php?msg=Successfully OTP Resent!", "Location: registrationpage.php?error=Unable to send Mail");
+
+
+    header("Location: plan.php");
 }
 
-// mail sent for forget password
-if (isset($_POST["f_sub"])) {
-    $_SESSION["fmail"] = $_POST["f_email"];
-    $fmail = $_SESSION["fmail"];
-    $pass_upd = mysqli_query($conn, "SELECT * FROM user WHERE email = '$fmail'");
-    if (mysqli_num_rows($pass_upd) == 1) {
-        $fotp = rand(10000, 99999);
-        $_SESSION["f_otp"] = $fotp;
-        mailTo($fmail, "User", 'Verification!', 'Forget Password verification code is: ' . $fotp, "Location:f_otp.php?msg=OTP Successfully sent!", "Location: loginpage.php?error=Unable to send Mail!");
-    } else {
-        header("Location: loginpage.php?error=E-mail id not found!");
-    }
-}
+// //resent otp for registration
+// if (isset($_POST["re_otp"])) {
+//     mailTo($_SESSION['reg_mail'], $_SESSION['reg_name'], 'Registration Verification OTP Resent!', 'Welcome ' . $_SESSION['reg_name'] . ' to Online matrimonial website.<br><br>OTP verification code is: ' . $_SESSION["otp"], "Location:otp.php?msg=Successfully OTP Resent!", "Location: registrationpage.php?error=Unable to send Mail");
+// }
 
-// mail sent for resent otp forget password
-if (isset($_POST["re_fotp"])) {
-    $fmail = $_SESSION["fmail"];
-    $pass_upd = mysqli_query($conn, "SELECT * FROM user WHERE email = '$fmail'");
-    if (mysqli_num_rows($pass_upd) == 1) {
-        mailTo($fmail, 'User', 'Verification!', 'Forget Password verification code is: ' . $_SESSION["f_otp"], "Location: f_otp.php?msg=OTP Successfully Resent!", "Location: loginpage.php?error=Unable to send Mail!");
-    } else {
-        header("Location: loginpage.php?error=E-mail id not found!");
-    }
-}
+// // mail sent for forget password
+// if (isset($_POST["f_sub"])) {
+//     $_SESSION["fmail"] = $_POST["f_email"];
+//     $fmail = $_SESSION["fmail"];
+//     $pass_upd = mysqli_query($conn, "SELECT * FROM user WHERE email = '$fmail'");
+//     if (mysqli_num_rows($pass_upd) == 1) {
+//         $fotp = rand(10000, 99999);
+//         $_SESSION["f_otp"] = $fotp;
+//         mailTo($fmail, "User", 'Verification!', 'Forget Password verification code is: ' . $fotp, "Location:f_otp.php?msg=OTP Successfully sent!", "Location: loginpage.php?error=Unable to send Mail!");
+//     } else {
+//         header("Location: loginpage.php?error=E-mail id not found!");
+//     }
+// }
 
-//checking otp for forget password
-if (isset($_POST["fotp_sub"])) {
-    if ($_SESSION["f_otp"] == $_POST["fu_otp"]) {
-        header("Location: pass.php");
-    } else {
-        header("Location: f_otp.php?fotp_error=OTP not matched!");
-    }
-}
+// // mail sent for resent otp forget password
+// if (isset($_POST["re_fotp"])) {
+//     $fmail = $_SESSION["fmail"];
+//     $pass_upd = mysqli_query($conn, "SELECT * FROM user WHERE email = '$fmail'");
+//     if (mysqli_num_rows($pass_upd) == 1) {
+//         mailTo($fmail, 'User', 'Verification!', 'Forget Password verification code is: ' . $_SESSION["f_otp"], "Location: f_otp.php?msg=OTP Successfully Resent!", "Location: loginpage.php?error=Unable to send Mail!");
+//     } else {
+//         header("Location: loginpage.php?error=E-mail id not found!");
+//     }
+// }
 
-//update forget password
-if (isset($_POST["fp_sub"])) {
-    $fmail = $_SESSION["fmail"];
-    $npass = $_POST["f_pass"];
-    $cpass = $_POST["fc_pass"];
-    if ($npass == $cpass) {
-        $pass_upd = mysqli_query($conn, "UPDATE user SET password = '$npass' WHERE (email = '$fmail')");
-        if ($pass_upd) {
-            header("Location: index.php?error=Login with New password");
-        }
-    } else {
-        header("Location: pass.php?msg=Password Mismatched!");
-    }
-}
+// //checking otp for forget password
+// if (isset($_POST["fotp_sub"])) {
+//     if ($_SESSION["f_otp"] == $_POST["fu_otp"]) {
+//         header("Location: pass.php");
+//     } else {
+//         header("Location: f_otp.php?fotp_error=OTP not matched!");
+//     }
+// }
 
-//check otp 
-if (isset($_POST["otp_submit"])) {
-    if ($_SESSION["otp"] == $_POST["u_otp"]) {
-        header("Location: plan.php");
-    } else {
-        header("Location: otp.php?otp_error=OTP not matched!");
-    }
-}
+// //update forget password
+// if (isset($_POST["fp_sub"])) {
+//     $fmail = $_SESSION["fmail"];
+//     $npass = $_POST["f_pass"];
+//     $cpass = $_POST["fc_pass"];
+//     if ($npass == $cpass) {
+//         $pass_upd = mysqli_query($conn, "UPDATE user SET password = '$npass' WHERE (email = '$fmail')");
+//         if ($pass_upd) {
+//             header("Location: index.php?error=Login with New password");
+//         }
+//     } else {
+//         header("Location: pass.php?msg=Password Mismatched!");
+//     }
+// }
+
+// //check otp 
+// if (isset($_POST["otp_submit"])) {
+//     if ($_SESSION["otp"] == $_POST["u_otp"]) {
+//         header("Location: plan.php");
+//     } else {
+//         header("Location: otp.php?otp_error=OTP not matched!");
+//     }
+// }
 
 
 // To register the premium user details
@@ -335,42 +338,42 @@ if (isset($_POST["chg_adsubmit"])) {
     }
 }
 
-//admin delete the user
-if (isset($_GET["del_id"])) {
-    $del = $_GET["del_id"];
-    $row21 = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM user WHERE user_id = $del"));
-    require 'vendor/autoload.php';
+// //admin delete the user
+// if (isset($_GET["del_id"])) {
+//     $del = $_GET["del_id"];
+//     $row21 = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM user WHERE user_id = $del"));
+//     require 'vendor/autoload.php';
 
-    $mail = new PHPMailer(true);
+//     $mail = new PHPMailer(true);
 
-    try {
-        $mail->SMTPDebug = 0;
-        $mail->isSMTP();
-        $mail->Host     = 'smtp.gmail.com';
-        $mail->SMTPAuth = true;
-        $mail->Username = 'projectdemo1310@gmail.com';
-        $mail->Password = 'project@demo';
-        $mail->SMTPSecure = 'tls';
-        $mail->Port    = 587;
+//     try {
+//         $mail->SMTPDebug = 0;
+//         $mail->isSMTP();
+//         $mail->Host     = 'smtp.gmail.com';
+//         $mail->SMTPAuth = true;
+//         $mail->Username = 'projectdemo1310@gmail.com';
+//         $mail->Password = 'project@demo';
+//         $mail->SMTPSecure = 'tls';
+//         $mail->Port    = 587;
 
-        $mail->setFrom('matrimonybka@gmail.com', 'matrimony');
-        $mail->addAddress($row21["email"], $row21["firstname"] . " " . $row21["lastname"]);
+//         $mail->setFrom('matrimonybka@gmail.com', 'matrimony');
+//         $mail->addAddress($row21["email"], $row21["firstname"] . " " . $row21["lastname"]);
 
-        $mail->isHTML(true);
-        $mail->Subject = 'Information!';
-        $mail->Body = 'Dear ' . $row21["firstname"] . " " . $row21["lastname"] . ',<br>Due to some inappropriate information or activities the admin of our matrimony website Deleted your account!<br>Please contact us to make a Clarity.<br>Thank You!';
-        if ($mail->send()) {
-            $del_sql = mysqli_query($conn, "DELETE FROM user WHERE user_id='$del'");
-            if ($del_sql) {
-                header("Location: admin.php?msg=User removed from database successfully!");
-            } else {
-                header("Location: admin.php?msg=User remove failed!");
-            }
-        }
-    } catch (Exception $e) {
-        echo "Message could not be sent.";
-    }
-}
+//         $mail->isHTML(true);
+//         $mail->Subject = 'Information!';
+//         $mail->Body = 'Dear ' . $row21["firstname"] . " " . $row21["lastname"] . ',<br>Due to some inappropriate information or activities the admin of our matrimony website Deleted your account!<br>Please contact us to make a Clarity.<br>Thank You!';
+//         if ($mail->send()) {
+//             $del_sql = mysqli_query($conn, "DELETE FROM user WHERE user_id='$del'");
+//             if ($del_sql) {
+//                 header("Location: admin.php?msg=User removed from database successfully!");
+//             } else {
+//                 header("Location: admin.php?msg=User remove failed!");
+//             }
+//         }
+//     } catch (Exception $e) {
+//         echo "Message could not be sent.";
+//     }
+// }
 
 function matches($myid, $id)
 {
