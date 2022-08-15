@@ -338,42 +338,18 @@ if (isset($_POST["chg_adsubmit"])) {
     }
 }
 
-// //admin delete the user
-// if (isset($_GET["del_id"])) {
-//     $del = $_GET["del_id"];
-//     $row21 = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM user WHERE user_id = $del"));
-//     require 'vendor/autoload.php';
-
-//     $mail = new PHPMailer(true);
-
-//     try {
-//         $mail->SMTPDebug = 0;
-//         $mail->isSMTP();
-//         $mail->Host     = 'smtp.gmail.com';
-//         $mail->SMTPAuth = true;
-//         $mail->Username = 'projectdemo1310@gmail.com';
-//         $mail->Password = 'project@demo';
-//         $mail->SMTPSecure = 'tls';
-//         $mail->Port    = 587;
-
-//         $mail->setFrom('matrimonybka@gmail.com', 'matrimony');
-//         $mail->addAddress($row21["email"], $row21["firstname"] . " " . $row21["lastname"]);
-
-//         $mail->isHTML(true);
-//         $mail->Subject = 'Information!';
-//         $mail->Body = 'Dear ' . $row21["firstname"] . " " . $row21["lastname"] . ',<br>Due to some inappropriate information or activities the admin of our matrimony website Deleted your account!<br>Please contact us to make a Clarity.<br>Thank You!';
-//         if ($mail->send()) {
-//             $del_sql = mysqli_query($conn, "DELETE FROM user WHERE user_id='$del'");
-//             if ($del_sql) {
-//                 header("Location: admin.php?msg=User removed from database successfully!");
-//             } else {
-//                 header("Location: admin.php?msg=User remove failed!");
-//             }
-//         }
-//     } catch (Exception $e) {
-//         echo "Message could not be sent.";
-//     }
-// }
+//admin delete the user
+if (isset($_GET["del_id"])) {
+    $del = $_GET["del_id"];
+    
+            $del_sql = mysqli_query($conn, "DELETE FROM user WHERE user_id='$del'");
+            if ($del_sql) {
+                header("Location: admin.php?msg=User removed from database successfully!");
+            } else {
+                header("Location: admin.php?msg=User remove failed!");
+            }
+        
+}
 
 function matches($myid, $id)
 {
