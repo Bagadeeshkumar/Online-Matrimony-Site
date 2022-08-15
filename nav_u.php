@@ -177,7 +177,7 @@
             <li class="nav-item">
                 <a class="nav-link text-warning" href="#" data-backdrop="static" data-toggle="modal" data-target="#req_mod"><span><?php 
                                                                                                                                     if(!empty($count_req)){
-                                                                                                                                        echo '<span class="bg-danger text-white px-1">'.$count_req.'</span>';
+                                                                                                                                        echo '<span class="badge badge-danger px-1">'.$count_req.'</span>';
                                                                                                                                     } 
                                                                                                                                     else{
                                                                                                                                         echo '<i class="fa fa-user-times fa-x mr-1"></i>';
@@ -187,7 +187,7 @@
             <li class="nav-item">
                 <a class="nav-link text-warning" href="#" data-backdrop="static" data-toggle="modal" data-target="#s_req_mod"><span><?php 
                                                                                                                                     if(!empty($count_sreq)){
-                                                                                                                                        echo '<span class="badge badge-warning px-1">'.$count_sreq.'</span>';
+                                                                                                                                        echo '<span class="badge badge-danger px-1">'.$count_sreq.'</span>';
                                                                                                                                     } 
                                                                                                                                     else{
                                                                                                                                         echo '<i class="fa fa-user-plus fa-x mr-1"></i>';
@@ -197,7 +197,7 @@
             <li class="nav-item">
                 <a class="nav-link text-warning" href="#" data-backdrop="static" data-toggle="modal" data-target="#con_mod"><span><?php 
                                                                                                                                     if(!empty($count_con)){
-                                                                                                                                        echo '<span class="badge badge-warning px-1">'.$count_con.'</span>';;
+                                                                                                                                        echo '<span class="badge badge-danger px-1">'.$count_con.'</span>';;
                                                                                                                                     } 
                                                                                                                                     else{
                                                                                                                                         echo '<i class="fa fa-users fa-x mr-1"></i>';
