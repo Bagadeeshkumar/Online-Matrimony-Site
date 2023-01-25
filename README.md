@@ -1,13 +1,13 @@
 # Responsive-Online-Matrimony-Site
-- • Basic login and register functionality, then for users first-time users
+- Basic login and register functionality, then for users first-time users
 register with the website it suggests some profiles based on the
 information provided in the registration process.
-- • Users can search by id or name and here the request & accept system
+- Users can search by id or name and here the request & accept system
 is used to connect people which is similar to the Facebook friend
 request system.
-- • All users can be provided with the scores based on some criteria & all
+- All users can be provided with the scores based on some criteria & all
 premium users are allowed to view the details of the matched person.
-- • While the admin can view the details about the users and he will able
+- While the admin can view the details about the users and he will able
 to delete the user for inappropriate information in the registration
 process with the alert message through the mail.
   
