@@ -1,12 +1,20 @@
-# Online-Matrimony-Site
-
-  A website with the Basic Login, Register functionality & Users can able to buy the items in the list provided, search for the desired product, change the password, view the history of what he/she purchased, and checkout. 
-  While the admin can manage the products by changing the quantity available, deleting, inserting, updating the product, change the password and visit the history of the products purchased by all customers.
+# Responsive-Online-Matrimony-Site
+- Basic login and register functionality, then for users first-time users
+register with the website it suggests some profiles based on the
+information provided in the registration process.
+- Users can search by id or name and here the request & accept system
+is used to connect people which is similar to the Facebook friend
+request system.
+- All users can be provided with the scores based on some criteria & all
+premium users are allowed to view the details of the matched person.
+- While the admin can view the details about the users and he will able
+to delete the user for inappropriate information in the registration
+process with the alert message through the mail.
   
-Visit : [Live demo](https://pro-online-grocery-store.000webhostapp.com/)
+Visit : [Live demo](https://online-matrimony-site.000webhostapp.com/)
 
 ## User Login Credentials
-- username/email - john
+- username/email - Kevin
 - Password - password
 
 ## Admin Login Credentials
