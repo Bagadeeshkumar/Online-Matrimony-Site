@@ -12,7 +12,7 @@
   to delete the user for inappropriate information in the registration
   process with the alert message through the mail.
 
-[//]: # Visit : [Live demo](https://online-matrimony-site.000webhostapp.com/)
+<!--- Visit : [Live demo](https://online-matrimony-site.000webhostapp.com/) --->
 
 ## User Login Credentials
 
