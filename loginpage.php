@@ -1,20 +1,15 @@
 <?php
 
-require "db.php";
+require 'db.php';
 
 session_start();
-
 ?>
 
 <!DOCTYPE html>
 
 <html lang="en">
 
-<?php
-
-include "header.php";
-
-?>
+<?php include 'header.php'; ?>
 
 
 
@@ -60,15 +55,19 @@ include "header.php";
 
                         <input type="password" name="log_pass" class="form-control" value="" id="inputPassword" placeholder="Password" required>
 
-                        <?php if (isset($_GET["error"])) { ?>
+                        <?php if (isset($_GET['error'])) { ?>
 
-                            <span class="text-danger mt-1"><?php echo $_GET["error"]; ?></span>
+                            <span class="text-danger mt-1"><?php echo $_GET[
+                                'error'
+                            ]; ?></span>
 
                         <?php } ?>
 
-                        <?php if (isset($_GET["fsuccess"])) { ?>
+                        <?php if (isset($_GET['fsuccess'])) { ?>
 
-                            <span class="text-danger mt-1"><?php echo $_GET["fsuccess"]; ?></span>
+                            <span class="text-danger mt-1"><?php echo $_GET[
+                                'fsuccess'
+                            ]; ?></span>
 
                         <?php } ?>
 
@@ -125,9 +124,7 @@ include "header.php";
     <div class="fixed-bottom mar footer-copyright bg-dark text-white text-center py-3">Copyright © 2020 Reserved by Sai Matrimony</div>
 
     <?php
-
     if (isset($_COOKIE['email']) && isset($_COOKIE['pass'])) {
-
         $email = $_COOKIE['email'];
 
         $pass = $_COOKIE['pass'];
@@ -139,11 +136,9 @@ include "header.php";
                         document.getElementById('inputPassword').value='$pass';
 
                     </script>";
-
     }
 
-    include "loader.php";
-
+    include 'loader.php';
     ?>
 
 </body>

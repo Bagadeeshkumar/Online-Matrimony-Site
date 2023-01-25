@@ -1,15 +1,13 @@
 <?php
-require "db.php";
+require 'db.php';
 session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php
-include "header.php";
-?>
+<?php include 'header.php'; ?>
 
 <body>
-    <?php include "nav_i.php"; ?>
+    <?php include 'nav_i.php'; ?>
     <section class="main">
         <img class="img-fluid w-100" src="images/banner-1.jpg">
         <div class="jumbotron jumbotron-fluid bg-white">
@@ -52,9 +50,9 @@ include "header.php";
         </div>
         <h1 class="text-center mt-5 text-danger">Millions of happy customers</h1>
         <img class="img-fluid mt-5" width="100%" src="images/banner1.jpg">
-        <?php include "footer.php"; ?>
+        <?php include 'footer.php'; ?>
     </section>
-    <?php include "loader.php"; ?>
+    <?php include 'loader.php'; ?>
 </body>
 
 </html>
