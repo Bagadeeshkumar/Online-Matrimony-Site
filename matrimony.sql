@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2020 at 02:13 PM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Generation Time: Jan 25, 2023 at 03:00 PM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `friend` (
   `sender` varchar(5) NOT NULL,
   `receiver` varchar(5) NOT NULL,
   `status` varchar(5) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `friend`
@@ -110,14 +110,14 @@ CREATE TABLE `user` (
   `p_post` varchar(60) NOT NULL,
   `status` varchar(2) NOT NULL,
   `time` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`user_id`, `username`, `email`, `password`, `firstname`, `lastname`, `dob`, `age`, `gender`, `nationality`, `religion`, `caste`, `phno`, `img`, `f_name`, `m_name`, `citizenship`, `a_me`, `b_group`, `m_status`, `l_known`, `m_ton`, `f_val`, `f_type`, `f_status`, `home`, `f_occ`, `m_occ`, `nob`, `nob_m`, `nos`, `height`, `weight`, `p_status`, `b_type`, `complexion`, `e_habits`, `s_habit`, `d_habit`, `hobby`, `h_edu`, `employ`, `post`, `a_income`, `l_comp`, `l_des`, `address`, `dist`, `state`, `p_code`, `p_need`, `p_age`, `pm_status`, `p_religion`, `p_caste`, `pm_ton`, `p_post`, `status`, `time`) VALUES
-(1, 'Kevin', 'kevinjouse@gmail.com', 'kevinjouse', 'Kevin', 'J', '1995-02-17', '25', 'Male', 'Indian', 'Christian', 'Agamudayar', '6541239865', 'kevin.jpeg', 'John', 'Carolin', 'Indian', 'I am courageous person and I will definitely travel throughout the entire life with you and I have great reputation in the society. I have great job in my hand and I will lead a beautiful life with you.', 'O+ve', 'Never Married', 'Indian + English', 'Tamil', 'Liberal', 'Nuclear', 'Middle Class', 'own', 'Business', 'Housewife', 1, 0, 0, '5\'1 Feet', '66-70kg', 'Never Married', 'Average', 'Wheatish Brown', 'Non Vegetarian', 'No', 'sometime', 'Pets', 'Post Graduate', 'Government Job', 'Accounting, Banking & Finance', '4-5 lakh', 'State Bank Of India', 'Assistant Manager', '121, Nehru Street', 'Thanjavur', 'Tamil Nadu', 614602, 'Female', '22', 'Never Married', 'Christian', 'Agamudayar', 'Tamil', 'Accounting, Banking & Finance', 'F', '2020-10-10 18:35:56'),
+(1, 'Kevin', 'kevinjouse@gmail.com', 'password', 'Kevin', 'J', '1995-02-17', '25', 'Male', 'Indian', 'Christian', 'Agamudayar', '6541239865', 'kevin.jpeg', 'John', 'Carolin', 'Indian', 'I am courageous person and I will definitely travel throughout the entire life with you and I have great reputation in the society. I have great job in my hand and I will lead a beautiful life with you.', 'O+ve', 'Never Married', 'Indian + English', 'Tamil', 'Liberal', 'Nuclear', 'Middle Class', 'own', 'Business', 'Housewife', 1, 0, 0, '5\'1 Feet', '66-70kg', 'Never Married', 'Average', 'Wheatish Brown', 'Non Vegetarian', 'No', 'sometime', 'Pets', 'Post Graduate', 'Government Job', 'Accounting, Banking & Finance', '4-5 lakh', 'State Bank Of India', 'Assistant Manager', '121, Nehru Street', 'Thanjavur', 'Tamil Nadu', 614602, 'Female', '22', 'Never Married', 'Christian', 'Agamudayar', 'Tamil', 'Accounting, Banking & Finance', 'F', '2020-10-10 18:35:56'),
 (2, 'Denver', 'denver01@gmail.com', 'denver01', 'Madhav', 'E', '1992-01-21', '28', 'Male', 'Indian', 'Hindu', 'Baira', '6541897821', 'madhav.jpeg', 'Elango', 'Shanthi', 'Indian', 'I am courageous person and I will definitely travel throughout the entire life with you and I have great reputation in the society. I have great job in my hand and I will lead a beautiful life with you.', 'B+ve', 'Never Married', 'Indian + English', 'Malayalam', 'Modern', 'Nuclear', 'Upper Middle', 'own', 'Business', 'Housewife', 0, 0, 1, '5\'9 Feet', '66-70kg', 'Never Married', 'Athletic', 'Fair', 'Non Vegetarian', 'No', 'No', 'Acting', 'Post Graduate', 'Business In Partnership', 'Education & Training', '5-6 lakh', 'Brindhavan Higher Secondary School', 'Assistant Head Master', '21,Gandhi street', 'Thrissur', 'Kerala', 678905, 'Female', '24', 'Never Married', 'Hindu', 'Baira', 'Malayalam', 'Non Working', 'F', '2020-10-11 09:04:32'),
 (3, 'Rio', 'rioshivan@gmail.com', 'rioshivan', 'Rio', 'S', '1993-01-13', '27', 'Male', 'Indian', 'Hindu', 'Banjara', '64231587', 'rio.jpeg', 'Shivan', 'Akila', 'Indian', 'I am courageous person and I will definitely travel throughout the entire life with you and I have great reputation in the society. I have great job in my hand and I will lead a beautiful life with you.', 'A1+ve', 'Never Married', 'Indian + English', 'Hindi', 'Orthodox', 'Joint', 'Rich', 'own', 'Government Job', 'Government Job', 1, 1, 1, '5\'8 Feet', '71-75kg', 'Never Married', 'Average', 'Wheatish', 'Egg Only', 'No', 'No', 'Acting', 'Graduate', 'Business Alone', 'Corporate Professionals', '9-10 lakh', 'Sai Private Ltd.', 'Manager', '51, Nethaji Street', 'Banka', 'Bihar', 812564, 'Female', '24', 'Never Married', 'Hindu', 'Banjara', 'Hindi', 'Science', 'P', '2020-10-11 13:42:09'),
 (4, 'Hariharan', 'hariharan03@gmail.com', 'hariharan03', 'Hariharan', 'K', '1991-02-03', '29', 'Male', 'Indian', 'Hindu', 'Gounder ', '6321541265', 'hariharan.jpeg', 'Kamal', 'Poongudi', 'Indian', 'I am courageous person and I will definitely travel throughout the entire life with you and I have great reputation in the society. I have great job in my hand and I will lead a beautiful life with you.', 'O+ve', 'Never Married', 'Only Indian', 'Tamil', 'Liberal', 'Nuclear', 'Middle Class', 'rent', 'Retired', 'Housewife', 1, 0, 0, '5\'2 Feet', '71-75kg', 'Never Married', 'Average', 'Wheatish Brown', 'Non Vegetarian', 'No', 'No', 'Photography', 'Graduate', 'Private Job', 'Engineering', '4-5 lakh', 'Kavin Car Private Ltd.', 'Executive Assistant', '431, Anna Nagar', 'Trichy', 'Tamil Nadu', 614621, 'Female', '25', 'Never Married', 'Hindu', 'Gounder ', 'Tamil', 'Engineering', 'F', '2020-10-11 13:53:31'),
@@ -157,7 +157,7 @@ INSERT INTO `user` (`user_id`, `username`, `email`, `password`, `firstname`, `la
 (38, 'Vanaja', 'vanajarani@gmail.com', 'vanajarani', 'Vanaja', 'M', '1995-10-11', '25', 'Female', 'Indian', 'Hindu', 'Kallar', '9988774857', 'vanaja.jpeg', 'Mohan', 'Rani', 'Indian', 'I am courageous person and I will definitely travel throughout the entire life with you and I have great reputation in the society. I have great job in my hand and I will lead a beautiful life with you.', 'B+ve', 'Never Married', 'Only Indian', 'Tamil', 'Liberal', 'Nuclear', 'Middle Class', 'own', 'Private Job', 'Housewife', 0, 0, 1, '5\'4 Feet', '61-65kg', 'Never Married', 'Slim', 'Dark', 'Non Vegetarian', 'No', 'No', 'Arts/Handicrafts', 'Graduate', 'Private Job', 'Engineering', '3-4 lakh', 'Hyna Private Ltd.', 'Assistant Engineer', '374, Bamford Road', 'Vellore', 'Tamil Nadu', 632601, 'Male', '25', 'Never Married', 'Hindu', 'Kallar', 'Tamil', 'Engineering', 'F', '2020-10-15 18:41:13'),
 (39, 'Anderson', 'anderson18@gmail.com', 'anderson18', 'Anderson', 'J', '1994-05-23', '26', 'Male', 'Indian', 'Christian', 'Chandala', '7595848685', 'anderson.jpeg', 'John', 'Ananthi', 'Indian', 'I am courageous person and I will definitely travel throughout the entire life with you and I have great reputation in the society. I have great job in my hand and I will lead a beautiful life with you.', 'O+ve', 'Never Married', 'Only Indian', 'Malayalam', 'Liberal', 'Nuclear', 'Upper Middle', 'own', 'Government Job', 'Housewife', 1, 1, 0, '5\'10 Feet', '66-70kg', 'Never Married', 'Average', 'Wheatish Brown', 'Non Vegetarian', 'No', 'No', 'Nature', 'Graduate', 'Private Job', 'IT & Software Engineering', '5-6 lakh', 'Bogan Private Ltd.', 'Computer Programmer', '567, Baker Street', 'Palakkad', 'Kerala', 678690, 'Female', '24', 'Never Married', 'Christian', 'Chandala', 'Malayalam', 'IT & Software Engineering', 'P', '2020-10-15 18:54:14'),
 (40, 'Katrina', 'katrinathomas@gmail.com', 'katrinathomas', 'Katrina', 'T', '1996-06-14', '24', 'Female', 'Indian', 'Christian', 'Chandala', '7753562526', 'katrina.jpeg', 'Thomas', 'Regina', 'Indian', 'I am courageous person and I will definitely travel throughout the entire life with you and I have great reputation in the society. I have great job in my hand and I will lead a beautiful life with you.', 'A+ve', 'Never Married', 'Only Indian', 'Malayalam', 'Traditional', 'Nuclear', 'Upper Middle', 'own', 'Government Job', 'Housewife', 1, 1, 0, '5\'3 Feet', '56-60kg', 'Never Married', 'Slim', 'Fair', 'Vegetarian', 'No', 'No', 'Cooking', 'Graduate', 'Private Job', 'IT & Software Engineering', '5-6 lakh', 'Infosys', 'Cloud Architect', '590, Arundale Street', 'Alappuzha', 'Kerala', 674612, 'Male', '26', 'Never Married', 'Christian', 'Chandala', 'Malayalam', 'IT & Software Engineering', 'P', '2020-10-15 19:01:47'),
-(41, 'admin', 'matrimonybka@gmail.com', 'Admin@123', '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '2020-10-16 04:13:39');
+(41, 'admin', 'matrimonybka@gmail.com', 'password', '', '', '0000-00-00', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, 0, 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '2020-10-16 04:13:39');
 
 --
 -- Indexes for dumped tables
